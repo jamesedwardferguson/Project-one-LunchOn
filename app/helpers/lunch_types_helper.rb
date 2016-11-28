@@ -1,0 +1,2 @@
+module LunchTypesHelper
+end
