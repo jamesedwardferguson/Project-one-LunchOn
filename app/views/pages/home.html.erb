@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% @lunchtypes.each do |l| %>
+
+<div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="<%= l.image %>">
+    <div class="title"><%= l.name %> </div>
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">What can I buy?<i class="material-icons right">&#128077;</i></span>
+  </div>
+    <div class="card-reveal"><span class="card-title grey-text text-darken-4">
+
+      <div class="card-link"> <%= link_to "what's to eat?", lunchitems_path %> </div>
+
+      <i class="material-icons right">close</i></div></span>
+    </div>
+<% end %>

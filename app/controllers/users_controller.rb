@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by id: => params[:id]
+    @user = User.find_by :id => params[:id]
   end
 
   def new
@@ -28,5 +28,27 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = @current_user
+    if @user.update( user_params)
+      redirect_to @user
+    else
+      render :edit
+    end
   end
+
+def destroy
+end 
+
+
+  private
+    def user_params
+      params.require(:user).permit(:email, :name, :password, :password_confirmation)
+    end
+
+    def authorise
+      unless @current_user.present?
+        flash[:error] = "Please login to continue"
+        redirect_to login_path()
+      end
+    end
 end

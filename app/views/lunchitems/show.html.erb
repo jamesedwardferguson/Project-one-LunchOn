@@ -1,2 +1,15 @@
-<h1>Lunchitems#show</h1>
-<p>Find me in app/views/lunchitems/show.html.erb</p>
+<h3> My Lunches </h3>
+
+<% if @lunchitem.image %>
+<img src="<%= @lunchitem.image %>">
+<% end %>
+
+<p>Name: <%= @lunchitem.name %></p>
+
+
+<div class="controls">
+  <a href="/lunchitems/<%= @lunchitem.id %>/edit">
+    Edit this lunch
+  </a>
+  <%= button_to("Destroy the lunch", "/lunchitems/#{@lunchitem.id}/delete", :method => :delete) %>
+</div>
