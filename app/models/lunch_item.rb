@@ -1,6 +1,20 @@
+# == Schema Information
+#
+# Table name: lunch_items
+#
+#  id          :integer          not null, primary key
+#  name        :text
+#  user_id     :integer
+#  location_id :integer
+#  price       :integer
+#  image       :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class LunchItem < ActiveRecord::Base
-  has_and_belongs_to_many :lunchTypes
-  has_and_belongs_to_many :locations
-  has_and_belongs_to_many :users
- 
+  belongs_to :location
+  belongs_to :user
+
+  accepts_nested_attributes_for :location
 end

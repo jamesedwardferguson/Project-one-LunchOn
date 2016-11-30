@@ -1,0 +1,9 @@
+<h2> My Luncheons </h2>
+
+<div class="my-lunch">
+  <% @lunch_items.each do |lunch| %>
+  <ul>
+    <%= link_to(lunch.name, lunch_item_path(lunch)) %>
+  </ul>
+  <% end %>
+</div>

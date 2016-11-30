@@ -5,27 +5,49 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
 
 
-<nav>
+<nav class="#37474f blue-grey darken-3">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">LunchOn</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li> <%= link_to "Home", home_path %> </li>
-        <li> <%= link_to "Sign up", new_user_path %> </li>
-        <li> <%= link_to "Login", login_path %> </li>
-        <li> <%= link_to "Logout #{@current_user}", login_path, :method => :delete %> </li>
+        <% unless @current_user.present? %>
+          <li> <%= link_to "Sign up", new_user_path %> </li>
+          <li> <%= link_to "Login", login_path %> </li>
+        <% else %>
+          <li> <%= link_to "Logout #{@current_user.name}", login_path, :method => :delete %> </li>
+        <% end %>
       </ul>
     </div>
   </nav>
 
 
-<div class="container">
+<div class="main-container">
   <%= yield %>
 </div>
 
+<footer class="#37474f blue-grey darken-3" class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">blah blah i'm tired...</h5>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text"><i class="material-icons">language android location_on  </i></h5>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright"><div class="container">
+    © 2016 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!"> </a>
+    </div>
+  </div>
+</footer>
 </body>
+
 </html>

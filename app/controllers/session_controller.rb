@@ -1,20 +1,18 @@
 class SessionController < ApplicationController
+
   def new
   end
 
   def create
     user = User.find_by :email => params[:email]
-
     if user.present? && user.authenticate( params[:password] )
-      flash[:success] = "You successfully logged in"
+      flash[:success] = "You are logged in to lunchOn"
       session[:user_id] = user.id
-
-      redirect_to users_path
+      redirect_to root_path
     else
       flash[:error] = "The password or email was incorrect"
       render :new
     end
-
   end
 
   def destroy

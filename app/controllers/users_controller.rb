@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
-
+  before_action :authorise, :only => [:edit, :update]
 
   def index
     @users = User.all
+  end
+
+  def mylunchons
+    @user = @current_user
+    @lunch_items = @user.lunch_items
   end
 
   def show
@@ -16,8 +21,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      session[:user_id] = @user_id
-      redirect_to user_path (@user)
+      session[:user_id] = @user.id
+      redirect_to root_path
     else
       render :new
     end
@@ -37,12 +42,15 @@ class UsersController < ApplicationController
   end
 
 def destroy
-end 
+  user = @current_user
+  user.destroy
+  redirect_to root_path()
+end
 
 
   private
     def user_params
-      params.require(:user).permit(:email, :name, :password, :password_confirmation)
+      params.require(:user).permit(:email, :image, :name, :address, :password, :password_confirmation)
     end
 
     def authorise
@@ -51,4 +59,13 @@ end
         redirect_to login_path()
       end
     end
+    #  name            :text
+    #  email           :text
+    #  image           :text
+    #  admin           :boolean          default(FALSE)
+    #  password_digest :text
+    #  created_at      :datetime         not null
+    #  updated_at      :datetime         not null
+    #  latitude        :float
+    #  longitude       :float
 end

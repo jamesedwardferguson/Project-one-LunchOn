@@ -2,6 +2,10 @@
 
 <%= form_for @user do |f| %>
   <p>
+    <%= f.label :image %>
+    <%= f.cl_image_upload :image, :required => true %>
+  </p>
+  <p>
     <%= f.label :name %>
     <%= f.text_field :name, :required => true %>
   </p>

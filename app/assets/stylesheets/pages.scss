@@ -2,40 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  background: linear-gradient(to right,black, white);
-  // height: 100vh;
-  // width: 100vw;
-  // background-image: url("https://swishdesign.com.au/wp-content/uploads/2016/05/LunchBreak.jpg");
-}
-
-// .background {
-//   filter: blur(20px) saturate(1%);
-// }
-
-
-.activator img {
-  max-width: 150px;
-}
-
-
 .title {
   font-family: monospace;
+  color: white;
+  font-size: 200px;
+  border-radius: 100px;
+  border: 5px black;
+  text-shadow: 0 7px 0 rgba(0,0,0,0.1);
+  padding-top: 70px;
+  transform: rotate(-15deg);
+}
+
+.tagline {
+  font-family: Helvetica;
+  // background-color: rgba(0,0,0,0.5);
+  color: cornsilk;
   font-size: 40px;
-  text-align: center;
+  // width: 180px;
+  border-radius: 370px;
+  // border: 3px dashed black;
+  margin: 115px 10px 10px 450px;
 }
 
-.container {
-  width: 400px;
+
+
+.welcome {
+  font-family: geneva;
+  font-size: 60px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 3px 0 rgba(0,0,0,0.2);
+  padding-top: 30px;
 }
 
-.card-link {
+//Home page - main menu
+
+.home-controls {
+  // border: 1px dashed black;
   font-family: monospace;
-  margin-top: 30px;
-  margin-left: 20%;
-}
-
-.material-icons {
-  margin-top: 30px;
-  font-family: monospace;
+  font-size: 50px;
+  width: 900px;
+  height: 400px;
+  padding: 50px;
+  text-shadow: 0 3px 0 rgba(0,0,0,0.2);
 }

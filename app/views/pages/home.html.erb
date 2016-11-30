@@ -1,17 +1,22 @@
-<% @lunchtypes.each do |l| %>
 
-<div class="card">
-  <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="<%= l.image %>">
-    <div class="title"><%= l.name %> </div>
+<% if @current_user.present? %>
+
+<h3 class="welcome">Welcome <%= @current_user.name %> ! </h3>
+
+
+  <div class="home-controls">
+    <ul>
+      <!-- new.html.erb -->
+    <li><%= link_to "Add New LunchOn", new_lunch_item_path(@user) %></li>
+      <!-- index.html.erb -->
+    <li><%= link_to "Everyone's LunchOn's", lunch_items_path %></li>
+      <!-- show.html.erb -->
+    <li><%= link_to "My Past LunchOn's", mylunchons_path %></li>
+
+    </ul>
   </div>
-  <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">What can I buy?<i class="material-icons right">&#128077;</i></span>
-  </div>
-    <div class="card-reveal"><span class="card-title grey-text text-darken-4">
 
-      <div class="card-link"> <%= link_to "what's to eat?", lunchitems_path %> </div>
-
-      <i class="material-icons right">close</i></div></span>
-    </div>
+<% else %>
+  <h1 class="title"> lunchOn </h1>
+  <h3 class="tagline"> Find lunch ideas and share your lunch.. </h3>
 <% end %>

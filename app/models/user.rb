@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :lunch_items
   has_many :locations, :through => :lunch_items
-  has_many :lunch_types, :through => :lunch_items
   geocoded_by :address
   after_validation :geocode
 end

@@ -7,41 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.destroy_all
 
-10.times do
-  User.create!(:name => Faker::Name.name, :email => Faker::Internet.email, :image => Faker::Avatar.image, :password => 'chicken')
-end
+# 10.times do
+#   User.create!(:name => Faker::Name.name, :email => Faker::Internet.email, :image => Faker::Avatar.image, :password => 'chicken')
+# end
 
 LunchItem.destroy_all
 
-10.times do
-  LunchItem.create!(:name => Faker::Lorem.word, :price => Faker::Commerce.price, :image => Faker::Placeholdit.image)
-end
+# 10.times do
+#   LunchItem.create!(:name => Faker::Lorem.word, :price => Faker::Commerce.price, :image => Faker::Placeholdit.image)
+# end
 
-LunchType.destroy_all
-
-t1 = LunchType.create({
-    :name => 'Cafe',
-    :image =>
-    "https://cdn0.iconfinder.com/data/icons/buildings-8/512/food_restaurant_menu_shop_coffee_hot_label-512.png"
-    })
-
-t2 = LunchType.create({
-    :name => 'Food Court',
-    :image =>
-    "https://d30y9cdsu7xlg0.cloudfront.net/png/75696-200.png"
-    })
-
-t3 = LunchType.create({
-    :name => 'Pub',
-    :image =>
-    "https://d30y9cdsu7xlg0.cloudfront.net/png/10943-200.png"
-  })
-
-t4 = LunchType.create({
-    :name => 'Casual Dining',
-    :image =>
-    "https://cdn0.iconfinder.com/data/icons/transit-2/32/transit-35-512.png"
-  })
 
 Location.destroy_all
 

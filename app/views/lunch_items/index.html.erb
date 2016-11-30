@@ -1,0 +1,13 @@
+
+<% @lunchitems.each do |l| %>
+
+<ul>
+  <li>Who: <%= @lunch_items %></li>
+  <li>LunchOn item:<%= l.name %></li>
+  <li>Photo:<%= l.image() %></li>
+  <li>Price: <%= number_to_currency(l.price) %></li>
+  <li>Location: <div id="map"></div></li>
+</ul>
+<% end %>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUuOyjRSZboLxeCHrFyyPiPKT263QxxEM&callback=initMap" async defer></script>
