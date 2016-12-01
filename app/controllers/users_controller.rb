@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by :id => params[:id]
+    @lunch_items = @user.lunch_items
   end
 
   def new
@@ -20,6 +21,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      @user.image = req['public_id']
+    end
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path
@@ -34,7 +39,13 @@ class UsersController < ApplicationController
 
   def update
     @user = @current_user
-    if @user.update( user_params)
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      @user.image = req['public_id']
+    end
+    @user.assign_attributes(user_params)
+
+    if @user.save
       redirect_to @user
     else
       render :edit

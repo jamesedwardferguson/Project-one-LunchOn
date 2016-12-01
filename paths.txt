@@ -1,0 +1,31 @@
+         Prefix Verb   URI Pattern                     Controller#Action
+           root GET    /                               pages#home
+           home GET    /home(.:format)                 pages#home
+      edit_user GET    /users/edit(.:format)           users#edit
+          users GET    /users(.:format)                users#index
+                POST   /users(.:format)                users#create
+       new_user GET    /users/new(.:format)            users#new
+           user GET    /users/:id(.:format)            users#show
+                PATCH  /users/:id(.:format)            users#update
+                PUT    /users/:id(.:format)            users#update
+                DELETE /users/:id(.:format)            users#destroy
+    lunch_items GET    /lunch_items(.:format)          lunch_items#index
+                POST   /lunch_items(.:format)          lunch_items#create
+ new_lunch_item GET    /lunch_items/new(.:format)      lunch_items#new
+edit_lunch_item GET    /lunch_items/:id/edit(.:format) lunch_items#edit
+     lunch_item GET    /lunch_items/:id(.:format)      lunch_items#show
+                PATCH  /lunch_items/:id(.:format)      lunch_items#update
+                PUT    /lunch_items/:id(.:format)      lunch_items#update
+                DELETE /lunch_items/:id(.:format)      lunch_items#destroy
+      locations GET    /locations(.:format)            locations#index
+                POST   /locations(.:format)            locations#create
+   new_location GET    /locations/new(.:format)        locations#new
+  edit_location GET    /locations/:id/edit(.:format)   locations#edit
+       location GET    /locations/:id(.:format)        locations#show
+                PATCH  /locations/:id(.:format)        locations#update
+                PUT    /locations/:id(.:format)        locations#update
+                DELETE /locations/:id(.:format)        locations#destroy
+     mylunchons GET    /mylunchons(.:format)           users#mylunchons
+          login GET    /login(.:format)                session#new
+                POST   /login(.:format)                session#create
+                DELETE /login(.:format)                session#destroy

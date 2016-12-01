@@ -20,6 +20,10 @@ body {
   background-size: cover;
 }
 
+.brand logo {
+  font-size: 30px;
+}
+
 .main-container {
   min-height: calc(100vh - 180px);
   border-radius: 20px;
@@ -45,4 +49,12 @@ label {
 input {
   color: white;
   font-size: 20px;
+}
+
+#nav-mobile {
+  position: fixed;
+}
+
+.nav-wrapper {
+  position: fixed;
 }

@@ -1,13 +1,30 @@
 
 <% @lunchitems.each do |l| %>
 
-<ul>
-  <li>Who: <%= @lunch_items %></li>
-  <li>LunchOn item:<%= l.name %></li>
-  <li>Photo:<%= l.image() %></li>
-  <li>Price: <%= number_to_currency(l.price) %></li>
-  <li>Location: <div id="map"></div></li>
-</ul>
+  <div class="lunches">
+  <ul>
+    <li><%#= link_to(l.user.name, user_path(l.user)) %></li>
+    <li><%= l.name %></li>
+    <li><%= cl_image_tag(l.image) %></li>
+    <li><%= number_to_currency(l.price) %></li>
+    <li><%= l.location.name %></li>
+    <li><%= l.location.address %></li>
+  </ul>
+  </div>
+
+  <!-- Google map APi -->
+  <!-- <div class="map">
+    Location: <div id="map"></div>
+  </div> -->
+
+  <%= l.ratings.length %>
+  <% if @current_user.present? %>
+    <%= link_to "Like", rate_lunch_item_path(l) %>
+    <%# if l.ratings.pluck(:user_id).include?(@current_user.id)%>
+      <!-- (Unlike?) Need to create a new unrate path -->
+    <%# end %>
+  <% end %>
 <% end %>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUuOyjRSZboLxeCHrFyyPiPKT263QxxEM&callback=initMap" async defer></script>
+<script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUuOyjRSZboLxeCHrFyyPiPKT263QxxEM&callback=initMap"></script>

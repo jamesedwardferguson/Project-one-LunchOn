@@ -1,16 +1,13 @@
-<h3> My Lunches </h3>
+<h3> My LunchOn's </h3>
 
 <p>Name: <%= @lunchitem.name %></p>
 
 <!-- Cloudinary -->
 <%= cl_image_tag(@lunchitem.image, :class => "Valign") %>
 
-<!-- <p>Price: <%#= @lunchitem.price %></p> -->
 <p>Price: <%= number_to_currency(@lunchitem.price) %></p>
 
 <div class="controls">
-  <a href="/lunchitems/<%= @lunchitem.id %>/edit">
-    Edit this lunchOn
-  </a>
-  <%= button_to("Remove lunchOn", "/lunchitems/#{@lunchitem.id}/delete", :method => :delete) %>
+  <%= link_to "Edit LunchOn", edit_lunch_item_path(@lunchitem)%> |
+  <%= link_to("Remove lunchOn", "/lunch_item/#{@lunchitem.id}/delete", :method => :delete) %>
 </div>

@@ -1,9 +1,10 @@
-<h2> My Luncheons </h2>
+<h2> My Lunchon's </h2>
 
 <div class="my-lunch">
   <% @lunch_items.each do |lunch| %>
   <ul>
-    <%= link_to(lunch.name, lunch_item_path(lunch)) %>
+    
+    <%= link_to(lunch.name, lunch_item_path(lunch)) %> | Price: <%= number_to_currency(lunch.price)  %>
   </ul>
   <% end %>
 </div>

@@ -6,17 +6,14 @@
 
   <div class="home-controls">
     <ul>
-      <!-- new.html.erb -->
-    <li><%= link_to "Add New LunchOn", new_lunch_item_path(@user) %></li>
-      <!-- index.html.erb -->
-    <li><%= link_to "Everyone's LunchOn's", lunch_items_path %></li>
-      <!-- show.html.erb -->
-    <li><%= link_to "My Past LunchOn's", mylunchons_path %></li>
-
+      <li><%= link_to "LunchOn Inspiration", lunch_items_path %></li>
+      <li><%= link_to "Add New LunchOn", new_lunch_item_path(@user) %></li>
+      <li><%= link_to "My LunchOn's", mylunchons_path %></li>
+      <li><%= link_to "LunchOn community", users_path %></li>
     </ul>
   </div>
 
 <% else %>
-  <h1 class="title"> lunchOn </h1>
-  <h3 class="tagline"> Find lunch ideas and share your lunch.. </h3>
+  <h1 class="title"> lunch&#xe135;n </h1>
+  <h3 class="tagline"> A good lunch, is one that is shared... </h3>
 <% end %>

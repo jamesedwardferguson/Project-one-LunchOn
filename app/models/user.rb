@@ -12,6 +12,7 @@
 #  updated_at      :datetime         not null
 #  latitude        :float
 #  longitude       :float
+#  address         :string
 #
 
 class User < ActiveRecord::Base

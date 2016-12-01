@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'posts/show'
+
   root 'pages#home'
   get '/home' => 'pages#home'
 
@@ -12,6 +14,6 @@ Rails.application.routes.draw do
   post "/login" => 'session#create'
   delete "/login" => 'session#destroy'
 
-
+  get "/lunch_items/:id/rate" => 'lunch_items#rate', :as => 'rate_lunch_item'
 
 end

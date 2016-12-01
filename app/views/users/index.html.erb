@@ -1,1 +1,12 @@
 <h2> All lunchOn Users </h2>
+
+<ul>
+  <% @users.each do |p| %>
+<div>
+    Member: <%= link_to(p.name, user_path(p)) %>
+</div>
+<div>
+  <%= cl_image_tag(p.image) %>
+</div>
+  <% end %>
+</ul>

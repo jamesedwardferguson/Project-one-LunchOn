@@ -15,6 +15,6 @@
 class LunchItem < ActiveRecord::Base
   belongs_to :location
   belongs_to :user
-
+  has_many :ratings
   accepts_nested_attributes_for :location
 end

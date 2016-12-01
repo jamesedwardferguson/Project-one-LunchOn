@@ -14,6 +14,7 @@ h3 {
   font-weight: bold;
   color: white;
   text-shadow: 0 3px 0 rgba(0,0,0,0.2);
+  padding-bottom: 20px;
 }
 
 p {
@@ -26,9 +27,32 @@ p {
 #map {
   height: 200px;
   width: 400px;
+  background-color: grey;
   margin-left: 28%
 }
+
 .main-container {
   color: white;
   text-shadow: 0 3px 0 rgba(0,0,0,0.2);
+}
+
+.main-container img {
+  border-radius: 30px;
+  max-width: 100px;
+}
+
+.Valign {
+  border-radius: 50px;
+  max-width: 400px;
+}
+
+.gm-style-iw {
+  color: black;
+}
+
+.lunches {
+  margin-left: 40%;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 35px;
 }

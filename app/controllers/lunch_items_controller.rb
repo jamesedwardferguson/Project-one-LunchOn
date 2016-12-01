@@ -30,20 +30,36 @@ class LunchItemsController < ApplicationController
 
   def update
     lunchitem = LunchItem.find params["id"]
-    lunchitem.update lunchitem_params
-
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
-      @lunchitem.image = req['public_id']
+      lunchitem.image = req['public_id']
     end
-
-    @lunchitem.assign_attributes(user_params)
-    @lunchitem.save
+    lunchitem.assign_attributes(lunch_items_params)
+    lunchitem.save
     redirect_to "/user/#{user.id}"
   end
 
   def destroy
   end
+
+  def rate
+    lunch_item = LunchItem.find_by :id => params[:id]
+    ratings = lunch_item.ratings.where :user_id => @current_user.id
+
+    if ratings.empty?
+  # If there are no ratings attached to this post with the current_user id
+    # Create a new one
+
+      r = Rating.new
+      r.lunch_item_id = lunch_item.id
+      r.user_id = @current_user.id
+      r.save
+    else
+      flash[:error] = "You have already liked this"
+    end
+      redirect_to lunch_items_path
+    end
+
 
   private
   def lunch_item_params
